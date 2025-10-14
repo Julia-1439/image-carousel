@@ -1,0 +1,54 @@
+#frame {
+  width: 500px;
+  position: relative;
+}
+
+#slides-reel {
+  display: flex;
+  position: relative;
+  right: calc(0 * 500px); /* index ranges from 0 to num_imgs less 1 */
+}
+
+.slide {
+  flex: none;
+  width: 100%;
+}
+
+.slide img {
+  max-width: 100%;
+  display: block; /* to remove small bottom margin */
+}
+
+/* Menu */
+.menu-arrow {
+  --arrow-width: 72px;
+  
+  width: var(--arrow-width);
+  position: absolute;
+  top: calc(50% - var(--arrow-width) / 2);
+}
+
+#menu-arrow-right {
+  right: 0;
+}
+
+#bubbles-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.bubble {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.current-bubble {
+  background: black;
+}
