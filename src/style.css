@@ -6,12 +6,16 @@
 #slides-reel {
   display: flex;
   position: relative;
-  right: calc(0 * 500px); /* index ranges from 0 to num_imgs less 1 */
 }
 
 .slide {
   flex: none;
   width: 100%;
+  visibility: hidden;
+}
+
+.current.slide {
+  visibility: visible;
 }
 
 .slide img {
@@ -19,20 +23,23 @@
   display: block; /* to remove small bottom margin */
 }
 
-/* Menu */
+/* Arrows */
 .menu-arrow {
-  --arrow-width: 72px;
-  
-  width: var(--arrow-width);
+  --arrow-size: 72px;
+
+  display: block;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
   position: absolute;
-  top: calc(50% - var(--arrow-width) / 2);
+  top: calc(50% - var(--arrow-size) / 2);
 }
 
 #menu-arrow-right {
   right: 0;
 }
 
-#bubbles-container {
+/* Bubbles */
+#bubbles-row {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -49,6 +56,6 @@
   border-radius: 50%;
 }
 
-.current-bubble {
+.current.bubble {
   background: black;
 }
