@@ -1,10 +1,11 @@
 import "./style.css";
 
 /**
- * Module to start the image carousel and assign interactivity. 
- * Preconditions: the HTML has the images hardcoded in and the respective amount of bubble buttons. 
+ * Module to start the image carousel and assign interactivity.
+ * Preconditions: the HTML has the images hardcoded in and the respective 
+ * amount of bubble buttons.
  */
-(function startImgCarousel (doc) {
+(function startImgCarousel(doc) {
   const FIVE_SECONDS = 5 * 1000;
 
   const frame = doc.querySelector("#frame");
@@ -15,7 +16,8 @@ import "./style.css";
   const bubbles = frame.querySelectorAll("#bubbles-row .bubble");
 
   /**
-   * Module defining the scrolling mechanism. Crucially, it holds the index of the current image. 
+   * Module defining the scrolling mechanism. Crucially, it holds the index of 
+   * the current image.
    * @param {Number} numImgs The number of images in the carousel
    */
   const controller = ((numImgs) => {
@@ -30,20 +32,19 @@ import "./style.css";
 
     function decrementIndex() {
       imgIndex--;
-      imgIndex = (imgIndex % n + n) % n; // circumvent the default way negatives are modded in JS
+      imgIndex = ((imgIndex % n) + n) % n; // circumvent the default way negatives are modded in JS
       return imgIndex;
     }
 
     function setIndex(index) {
-      imgIndex = index; 
+      imgIndex = index;
     }
-  
+
     return {
       incrementIndex,
       decrementIndex,
       setIndex,
     };
-
   })(bubbles.length);
 
   (function init() {
@@ -76,8 +77,8 @@ import "./style.css";
   }
 
   /**
-   * To be called each time the current image index is changed in the controller module.
-   * @param {Number} imgIndex 
+   * To be called each time the image index is changed in the controller module.
+   * @param {Number} imgIndex
    */
   function render(imgIndex) {
     renderImage(imgIndex);
@@ -90,12 +91,11 @@ import "./style.css";
       frame.querySelector(".current.slide").classList.remove("current");
       slides[index].classList.add("current");
     }
-  
+
     // fill in the bubble for the current image
     function renderBubbles(index) {
       frame.querySelector(".current.bubble").classList.remove("current");
       bubbles[index].classList.add("current");
     }
   }
-  
 })(document);
