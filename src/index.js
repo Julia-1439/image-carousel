@@ -45,7 +45,7 @@ import "./style.css";
       decrementIndex,
       setIndex,
     };
-  })(bubbles.length);
+  })(slides.length);
 
   (function init() {
     bubbles[0].classList.add("current");
